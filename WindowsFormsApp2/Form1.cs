@@ -72,9 +72,9 @@ namespace WindowsFormsApp2
         private void button1_Click(object sender, EventArgs e)
         {
             //快退
-            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 3 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 3)
+            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 5 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 5)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 3;
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 5;
             }
 
         }
@@ -115,7 +115,7 @@ namespace WindowsFormsApp2
         private void button4_Click(object sender, EventArgs e)
         {
             //3.从断点播放
-            this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition = myDtime;
+            this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition = stopPoint.Peek();
             this.axWindowsMediaPlayer1.Ctlcontrols.play();
             
         }

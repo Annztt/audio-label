@@ -12,3 +12,17 @@ F:\visual studio 2010\Projects\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\AxInt
 F:\visual studio 2010\Projects\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\Interop.WMPLib.dll
 F:\visual studio 2010\Projects\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\AxInterop.WMPLib.dll
 F:\visual studio 2010\Projects\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.ResolveComReference.cache
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe.config
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.exe
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\bin\Debug\WindowsFormsApp2.pdb
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\bin\Debug\Interop.WMPLib.dll
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\bin\Debug\AxInterop.WMPLib.dll
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojResolveAssemblyReference.cache
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\Interop.WMPLib.dll
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\AxInterop.WMPLib.dll
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.ResolveComReference.cache
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Form1.resources
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.Cache
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.exe
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.pdb
