@@ -76,6 +76,14 @@ namespace WindowsFormsApp2
             {
                 axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 10;
             }
+            else if(axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 10)
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition = stopPoint.Peek();
+            }
+            else
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition = 0;
+            }
 
         }
 
