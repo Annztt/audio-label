@@ -11,3 +11,4 @@ F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj
 F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Release\WindowsFormsApp2.csproj.GenerateResource.Cache
 F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Release\WindowsFormsApp2.exe
 F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Release\WindowsFormsApp2.pdb
+F:\visual studio 2010\Projects\WindowsFormsApp2\audio-label\WindowsFormsApp2\obj\Release\WindowsFormsApp2.csprojResolveAssemblyReference.cache

@@ -101,7 +101,8 @@ namespace WindowsFormsApp2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(state == State.annote)
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
+            if (state == State.annote)
             {
                 //1.设断点
                 this.axWindowsMediaPlayer1.Ctlcontrols.pause();
@@ -145,6 +146,7 @@ namespace WindowsFormsApp2
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
             //3.从断点播放
             this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition = stopPoint.Peek();
             this.axWindowsMediaPlayer1.Ctlcontrols.play();
@@ -153,7 +155,9 @@ namespace WindowsFormsApp2
 
         private void button8_Click(object sender, EventArgs e)
         {
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
             state = State.annote;
+            if (textBox2.Text.Length < 2) { return; }
             //撤回一行
             stopPoint.Pop();
             if (linesNum > 0)
@@ -177,6 +181,7 @@ namespace WindowsFormsApp2
 
         private void button9_Click(object sender, EventArgs e)
         {
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
             if (textBox2.Text.Length < 2) {
                 return;
             }
@@ -240,6 +245,26 @@ namespace WindowsFormsApp2
         private void axWindowsMediaPlayer1_Enter(object sender, EventArgs e)
         {
 
+        }
+        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (e.newState == 8)
+            {
+                if (state == State.annote)
+                {
+                    //1.设断点
+                    this.axWindowsMediaPlayer1.Ctlcontrols.pause();
+                    myDtime = this.axWindowsMediaPlayer1.currentMedia.duration;
+                    Double beforeStop = stopPoint.Peek();
+
+                    if (myDtime == beforeStop || myDtime == 0.0) { return; }
+
+                    linesNum++;
+                    textBox2.AppendText((linesNum + 1) + " " + beforeStop + " " + myDtime + " ");
+                    stopPoint.Push(myDtime);
+                }
+                state = State.breakPoint;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
