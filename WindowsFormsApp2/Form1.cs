@@ -63,18 +63,18 @@ namespace WindowsFormsApp2
         private void button10_Click(object sender, EventArgs e)
         {
             //快进
-            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition < axWindowsMediaPlayer1.currentMedia.duration - 5)
+            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition < axWindowsMediaPlayer1.currentMedia.duration - 10)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.currentPosition += 5;
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition += 10;
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //快退
-            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 5 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 5)
+            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 10 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 10)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 5;
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 10;
             }
 
         }
