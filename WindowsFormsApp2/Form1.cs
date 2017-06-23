@@ -20,6 +20,7 @@ namespace WindowsFormsApp2
         OpenFileDialog openFile = new OpenFileDialog();
         Stack<Double> stopPoint = new Stack<Double>();
         Double myDtime;
+        State state = State.annote;
         int linesNum = -1;
         //private int cur = 0;
 
@@ -37,6 +38,8 @@ namespace WindowsFormsApp2
             labelBoxs.Add(this.radioButton7);
             labelBoxs.Add(this.radioButton8);
 
+            radioButton1.Select();
+            radioButton6.Select();
             //DirectoryInfo dir = new DirectoryInfo("G:/后摄像头可爱的西沙群岛  下乡明德小学赵丹羽公开课");
             //FileInfo[] fil = dir.GetFiles();
             //foreach (FileInfo f in fil)
@@ -50,6 +53,13 @@ namespace WindowsFormsApp2
            
             //打开播放文件
             openFile.ShowDialog();
+
+            //播放
+            axWindowsMediaPlayer1.URL = openFile.FileName;
+            String fullName = openFile.FileName;
+            stopPoint.Push(0.0000000);
+
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -62,6 +72,7 @@ namespace WindowsFormsApp2
 
         private void button10_Click(object sender, EventArgs e)
         {
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
             //快进
             if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition < axWindowsMediaPlayer1.currentMedia.duration - 10)
             {
@@ -71,6 +82,7 @@ namespace WindowsFormsApp2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
             //快退
             if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 10 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 10)
             {
@@ -89,35 +101,46 @@ namespace WindowsFormsApp2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //1.设断点
-            this.axWindowsMediaPlayer1.Ctlcontrols.pause();            
-            myDtime = this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
-            Double beforeStop = stopPoint.Peek();
-            linesNum++;
-            textBox2.AppendText((linesNum+1) +" "+ beforeStop + " " + myDtime + " ");
-            stopPoint.Push(myDtime);
-            
+            if(state == State.annote)
+            {
+                //1.设断点
+                this.axWindowsMediaPlayer1.Ctlcontrols.pause();
+                myDtime = this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
+                Double beforeStop = stopPoint.Peek();
+                
+                if (myDtime == beforeStop || myDtime==0.0) { return; }
+           
+                linesNum++;
+                textBox2.AppendText((linesNum + 1) + " " + beforeStop + " " + myDtime + " ");
+                stopPoint.Push(myDtime);
+            }
+            state = State.breakPoint;
+                       
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //2.标记
-            //String filename = list[this.cur];
-            //filename = filename.Substring(0, filename.Length - 4);
-            String myLabel = "";
+            if(state == State.breakPoint) {
+                //2.标记
+                //String filename = list[this.cur];
+                //filename = filename.Substring(0, filename.Length - 4);
+                String myLabel = "";
 
-            foreach (RadioButton cb in this.labelBoxs)
-            {
-                if (cb.Checked)
+                foreach (RadioButton cb in this.labelBoxs)
                 {
-                    myLabel = myLabel + cb.Text + "-";
+                    if (cb.Checked)
+                    {
+                        myLabel = myLabel + cb.Tag.ToString() + "-";
+                    }
                 }
-            }
-            myLabel = myLabel.Substring(0, myLabel.Length - 1);
+                myLabel = myLabel.Substring(0, myLabel.Length - 1);
 
-            //clsPlaySound.ChangeFileName(list[this.cur], filename + "-" + myLabel + ".wav");
-            textBox2.AppendText("-" + myLabel + " \r\n");
-            //this.cur++;
+                //clsPlaySound.ChangeFileName(list[this.cur], filename + "-" + myLabel + ".wav");
+                textBox2.AppendText("-" + myLabel + "\r\n");
+                //this.cur++;
+            }
+            state = State.annote;
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -130,22 +153,42 @@ namespace WindowsFormsApp2
 
         private void button8_Click(object sender, EventArgs e)
         {
+            state = State.annote;
             //撤回一行
             stopPoint.Pop();
-            int start = textBox2.GetFirstCharIndexFromLine(linesNum);//最后一行第一个字符的索引
-            int end = textBox2.Text.Length;//最后一行最后一个字符的索引
-            textBox2.Select(start, end);//选中一行
-            textBox2.SelectedText = "";//设置一行的内容为空
-            linesNum--;
+            if (linesNum > 0)
+            {
+                int start = textBox2.GetFirstCharIndexFromLine(linesNum);//最后一行第一个字符的索引
+                int end = textBox2.Text.Length;//最后一行最后一个字符的索引
+                textBox2.Select(start, end);//选中一行
+                textBox2.SelectedText = "";//设置一行的内容为空
+                linesNum--;
+            }
+            else if (linesNum == 0) {
+                int start = textBox2.GetFirstCharIndexFromLine(0);//最后一行第一个字符的索引
+                int end = textBox2.Text.Length;//最后一行最后一个字符的索引
+                textBox2.Select(start, end);//选中一行
+                textBox2.SelectedText = "";//设置一行的内容为空
+                linesNum--;
+            }
+                
+            
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            //撤回标记 
-            int start = textBox2.Text.Length - 9;
-            int end = textBox2.Text.Length;
-            textBox2.Select(start, end);//选中
-            textBox2.SelectedText = "";//设置的内容为空
+            if (textBox2.Text.Length < 2) {
+                return;
+            }
+            if (state == State.annote)
+            {
+                //撤回标记 
+                int start = textBox2.Text.Length - 9;
+                int end = textBox2.Text.Length;
+                textBox2.Select(start, end);//选中
+                textBox2.SelectedText = "";//设置的内容为空
+            }
+            state = State.breakPoint;
 
         }
 
@@ -212,6 +255,7 @@ namespace WindowsFormsApp2
 
     }
 
+    enum State { breakPoint, annote };
     //private void button1_Click(object sender, EventArgs e)
     //{
     //    //连续播放时

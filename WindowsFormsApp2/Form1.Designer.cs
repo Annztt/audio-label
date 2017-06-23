@@ -43,7 +43,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -52,9 +51,12 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button10 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -64,103 +66,112 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(11, 250);
+            this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button2.Location = new System.Drawing.Point(20, 190);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(63, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "2.标记";
+            this.button2.Text = "标记";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(24, 37);
+            this.radioButton1.Location = new System.Drawing.Point(16, 28);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(35, 16);
+            this.radioButton1.Size = new System.Drawing.Size(59, 16);
             this.radioButton1.TabIndex = 5;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "dl";
+            this.radioButton1.Tag = "dl";
+            this.radioButton1.Text = "老师dl";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(24, 59);
+            this.radioButton2.Location = new System.Drawing.Point(16, 52);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(35, 16);
+            this.radioButton2.Size = new System.Drawing.Size(59, 16);
             this.radioButton2.TabIndex = 6;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "dx";
+            this.radioButton2.Tag = "dx";
+            this.radioButton2.Text = "学生dx";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(24, 81);
+            this.radioButton3.Location = new System.Drawing.Point(16, 74);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(35, 16);
+            this.radioButton3.Size = new System.Drawing.Size(59, 16);
             this.radioButton3.TabIndex = 7;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "dr";
+            this.radioButton3.Tag = "dr";
+            this.radioButton3.Text = "多人dr";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(24, 103);
+            this.radioButton4.Location = new System.Drawing.Point(16, 96);
             this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(35, 16);
+            this.radioButton4.Size = new System.Drawing.Size(59, 16);
             this.radioButton4.TabIndex = 8;
             this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "zy";
+            this.radioButton4.Tag = "zy";
+            this.radioButton4.Text = "杂音zy";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(24, 125);
+            this.radioButton5.Location = new System.Drawing.Point(16, 118);
             this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(35, 16);
+            this.radioButton5.Size = new System.Drawing.Size(59, 16);
             this.radioButton5.TabIndex = 9;
             this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "jy";
+            this.radioButton5.Tag = "jy";
+            this.radioButton5.Text = "静音jy";
             this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // radioButton6
             // 
             this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(32, 37);
+            this.radioButton6.Location = new System.Drawing.Point(11, 31);
             this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(35, 16);
+            this.radioButton6.Size = new System.Drawing.Size(59, 16);
             this.radioButton6.TabIndex = 10;
             this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "jj";
+            this.radioButton6.Tag = "jj";
+            this.radioButton6.Text = "积极jj";
             this.radioButton6.UseVisualStyleBackColor = true;
             // 
             // radioButton7
             // 
             this.radioButton7.AutoSize = true;
             this.radioButton7.CheckAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.radioButton7.Location = new System.Drawing.Point(32, 59);
+            this.radioButton7.Location = new System.Drawing.Point(11, 53);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(35, 16);
+            this.radioButton7.Size = new System.Drawing.Size(59, 16);
             this.radioButton7.TabIndex = 11;
             this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "xj";
+            this.radioButton7.Tag = "xj";
+            this.radioButton7.Text = "消极xj";
             this.radioButton7.UseVisualStyleBackColor = true;
             this.radioButton7.CheckedChanged += new System.EventHandler(this.radioButton7_CheckedChanged);
             // 
             // radioButton8
             // 
             this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(32, 84);
+            this.radioButton8.Location = new System.Drawing.Point(11, 75);
             this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(35, 16);
+            this.radioButton8.Size = new System.Drawing.Size(59, 16);
             this.radioButton8.TabIndex = 12;
             this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "zx";
+            this.radioButton8.Tag = "zx";
+            this.radioButton8.Text = "中性zx";
             this.radioButton8.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -171,15 +182,15 @@
             this.panel1.Controls.Add(this.radioButton2);
             this.panel1.Controls.Add(this.radioButton3);
             this.panel1.Controls.Add(this.radioButton5);
-            this.panel1.Location = new System.Drawing.Point(11, 86);
+            this.panel1.Location = new System.Drawing.Point(20, 49);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(106, 153);
+            this.panel1.Size = new System.Drawing.Size(94, 135);
             this.panel1.TabIndex = 13;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 4);
+            this.label2.Location = new System.Drawing.Point(14, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 10;
@@ -192,15 +203,15 @@
             this.panel2.Controls.Add(this.radioButton8);
             this.panel2.Controls.Add(this.radioButton6);
             this.panel2.Controls.Add(this.radioButton7);
-            this.panel2.Location = new System.Drawing.Point(153, 86);
+            this.panel2.Location = new System.Drawing.Point(120, 49);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(103, 119);
+            this.panel2.Size = new System.Drawing.Size(90, 99);
             this.panel2.TabIndex = 14;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 4);
+            this.label3.Location = new System.Drawing.Point(9, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 12);
             this.label3.TabIndex = 16;
@@ -212,25 +223,15 @@
             this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(22, 12);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(1263, 105);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(799, 105);
             this.axWindowsMediaPlayer1.TabIndex = 17;
             this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(175, 135);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 19;
-            this.button5.Text = "播放";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(33, 135);
+            this.button6.Location = new System.Drawing.Point(19, 129);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(97, 23);
+            this.button6.Size = new System.Drawing.Size(89, 23);
             this.button6.TabIndex = 20;
             this.button6.Text = "打开wav文件";
             this.button6.UseVisualStyleBackColor = true;
@@ -239,36 +240,38 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(13, 0);
+            this.textBox2.Location = new System.Drawing.Point(0, 2);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(681, 313);
+            this.textBox2.Size = new System.Drawing.Size(509, 274);
             this.textBox2.TabIndex = 22;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(11, 50);
+            this.button3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button3.Location = new System.Drawing.Point(20, 0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 23;
-            this.button3.Text = "1.设断点";
+            this.button3.Text = "设断点";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(11, 297);
+            this.button4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button4.Location = new System.Drawing.Point(20, 252);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(97, 23);
+            this.button4.Size = new System.Drawing.Size(118, 23);
             this.button4.TabIndex = 24;
-            this.button4.Text = "3.从断点播放";
+            this.button4.Text = "从上一断点播放";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(613, 342);
+            this.button7.Location = new System.Drawing.Point(428, 296);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(81, 23);
             this.button7.TabIndex = 25;
@@ -278,7 +281,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(511, 342);
+            this.button8.Location = new System.Drawing.Point(0, 296);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 23);
             this.button8.TabIndex = 27;
@@ -288,7 +291,8 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(181, 250);
+            this.button9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button9.Location = new System.Drawing.Point(115, 190);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(75, 23);
             this.button9.TabIndex = 28;
@@ -298,61 +302,92 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.panel1);
-            this.panel3.Controls.Add(this.button10);
             this.panel3.Controls.Add(this.button9);
             this.panel3.Controls.Add(this.button4);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.button2);
-            this.panel3.Location = new System.Drawing.Point(22, 175);
+            this.panel3.Location = new System.Drawing.Point(19, 180);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(332, 377);
+            this.panel3.Size = new System.Drawing.Size(229, 290);
             this.panel3.TabIndex = 29;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(134, 129);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(41, 23);
+            this.button1.TabIndex = 31;
+            this.button1.Text = "快退";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(181, 129);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(43, 23);
+            this.button10.TabIndex = 29;
+            this.button10.Text = "快进";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.textBox2);
             this.panel4.Controls.Add(this.button7);
             this.panel4.Controls.Add(this.button8);
-            this.panel4.Location = new System.Drawing.Point(578, 135);
+            this.panel4.Location = new System.Drawing.Point(312, 135);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(707, 393);
+            this.panel4.Size = new System.Drawing.Size(509, 335);
             this.panel4.TabIndex = 30;
             // 
-            // button10
+            // label1
             // 
-            this.button10.Location = new System.Drawing.Point(153, 10);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 29;
-            this.button10.Text = "快进";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(11, 12);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "1";
             // 
-            // button1
+            // label4
             // 
-            this.button1.Location = new System.Drawing.Point(11, 10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "快退";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(11, 12);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "2";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 256);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(11, 12);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "3";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 564);
+            this.ClientSize = new System.Drawing.Size(833, 498);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "语音组标注程序";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -360,6 +395,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -379,7 +415,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
@@ -393,6 +428,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label1;
     }
 }
 
