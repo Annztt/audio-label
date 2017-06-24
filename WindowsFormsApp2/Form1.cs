@@ -15,13 +15,14 @@ namespace WindowsFormsApp2
 {
     public partial class Form1 : Form
     {
-        //static List<string> list = new List<string>();//定义list变量，存放获取到的路径
+        
         List<RadioButton> labelBoxs = new List<RadioButton>();
         OpenFileDialog openFile = new OpenFileDialog();
         Stack<Double> stopPoint = new Stack<Double>();
         Double myDtime;
-        State state = State.annote;
-        int linesNum = -1;
+        State state;
+        int linesNum;
+        //static List<string> list = new List<string>();//定义list变量，存放获取到的路径
         //private int cur = 0;
 
         public Form1()
@@ -48,42 +49,44 @@ namespace WindowsFormsApp2
             //}   
         }
         
+        //打开wav文件
         private void button6_Click(object sender, EventArgs e)
         {
-           
             //打开播放文件
             openFile.ShowDialog();
 
             //播放
             axWindowsMediaPlayer1.URL = openFile.FileName;
-            String fullName = openFile.FileName;
-            stopPoint.Push(0.0000000);
-
             axWindowsMediaPlayer1.Ctlcontrols.stop();
-        }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            //播放
-            axWindowsMediaPlayer1.URL = openFile.FileName;
-            String fullName = openFile.FileName;
+            //清空textbox
+            textBox2.Text = "";
+
+            //清空栈
+            stopPoint.Clear();
             stopPoint.Push(0.0000000);
+
+            //初始化标记
+            state = State.annote;
+
+            //初始化行数
+            linesNum = -1;
         }
 
+        //快进
         private void button10_Click(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1.currentMedia == null) { return; }
-            //快进
             if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition < axWindowsMediaPlayer1.currentMedia.duration - 10)
             {
                 axWindowsMediaPlayer1.Ctlcontrols.currentPosition += 10;
             }
         }
 
+        //快退
         private void button1_Click(object sender, EventArgs e)
         {
-            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
-            //快退
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; } 
             if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 10 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 10)
             {
                 axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 10;
@@ -99,12 +102,12 @@ namespace WindowsFormsApp2
 
         }
 
+        //1.设断点
         private void button3_Click(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1.currentMedia == null) { return; }
             if (state == State.annote)
             {
-                //1.设断点
                 this.axWindowsMediaPlayer1.Ctlcontrols.pause();
                 myDtime = this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition;
                 Double beforeStop = stopPoint.Peek();
@@ -119,13 +122,14 @@ namespace WindowsFormsApp2
                        
         }
 
+        //2.标记
         private void button2_Click(object sender, EventArgs e)
         {
             if(state == State.breakPoint) {
-                //2.标记
+                
+                String myLabel = "";
                 //String filename = list[this.cur];
                 //filename = filename.Substring(0, filename.Length - 4);
-                String myLabel = "";
 
                 foreach (RadioButton cb in this.labelBoxs)
                 {
@@ -136,29 +140,30 @@ namespace WindowsFormsApp2
                 }
                 myLabel = myLabel.Substring(0, myLabel.Length - 1);
 
-                //clsPlaySound.ChangeFileName(list[this.cur], filename + "-" + myLabel + ".wav");
                 textBox2.AppendText("-" + myLabel + "\r\n");
+                //clsPlaySound.ChangeFileName(list[this.cur], filename + "-" + myLabel + ".wav");
                 //this.cur++;
             }
             state = State.annote;
             
         }
 
+        //3.从断点播放
         private void button4_Click(object sender, EventArgs e)
         {
-            if (axWindowsMediaPlayer1.currentMedia == null) { return; }
-            //3.从断点播放
+            if (axWindowsMediaPlayer1.currentMedia == null) { return; } 
             this.axWindowsMediaPlayer1.Ctlcontrols.currentPosition = stopPoint.Peek();
             this.axWindowsMediaPlayer1.Ctlcontrols.play();
             
         }
 
+        //撤回一行
         private void button8_Click(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1.currentMedia == null) { return; }
             state = State.annote;
             if (textBox2.Text.Length < 2) { return; }
-            //撤回一行
+            
             stopPoint.Pop();
             if (linesNum > 0)
             {
@@ -179,6 +184,7 @@ namespace WindowsFormsApp2
             
         }
 
+        //撤回标记 
         private void button9_Click(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1.currentMedia == null) { return; }
@@ -187,19 +193,17 @@ namespace WindowsFormsApp2
             }
             if (state == State.annote)
             {
-                //撤回标记 
                 int start = textBox2.Text.Length - 9;
                 int end = textBox2.Text.Length;
                 textBox2.Select(start, end);//选中
                 textBox2.SelectedText = "";//设置的内容为空
             }
             state = State.breakPoint;
-
         }
 
+        //导出txt文件
         private void button7_Click(object sender, EventArgs e)
         {
-            //导出txt文件
             // "保存为"对话框
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "文本文件|*.txt";
@@ -227,6 +231,27 @@ namespace WindowsFormsApp2
             }
         }
 
+        //音频结束设断点
+        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+        {
+            if (e.newState == 8)
+            {
+                if (state == State.annote)
+                {
+                    this.axWindowsMediaPlayer1.Ctlcontrols.pause();
+                    myDtime = this.axWindowsMediaPlayer1.currentMedia.duration;
+                    Double beforeStop = stopPoint.Peek();
+
+                    if (myDtime == beforeStop || myDtime == 0.0) { return; }
+
+                    linesNum++;
+                    textBox2.AppendText((linesNum + 1) + " " + beforeStop + " " + myDtime + " ");
+                    stopPoint.Push(myDtime);
+                }
+                state = State.breakPoint;
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -246,26 +271,6 @@ namespace WindowsFormsApp2
         {
 
         }
-        private void axWindowsMediaPlayer1_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
-        {
-            if (e.newState == 8)
-            {
-                if (state == State.annote)
-                {
-                    //1.设断点
-                    this.axWindowsMediaPlayer1.Ctlcontrols.pause();
-                    myDtime = this.axWindowsMediaPlayer1.currentMedia.duration;
-                    Double beforeStop = stopPoint.Peek();
-
-                    if (myDtime == beforeStop || myDtime == 0.0) { return; }
-
-                    linesNum++;
-                    textBox2.AppendText((linesNum + 1) + " " + beforeStop + " " + myDtime + " ");
-                    stopPoint.Push(myDtime);
-                }
-                state = State.breakPoint;
-            }
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -276,7 +281,6 @@ namespace WindowsFormsApp2
         {
 
         }
-
 
     }
 
