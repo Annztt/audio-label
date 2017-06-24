@@ -193,7 +193,7 @@ namespace WindowsFormsApp2
             }
             if (state == State.annote)
             {
-                int start = textBox2.Text.Length - 9;
+                int start = textBox2.Text.Length - 8;
                 int end = textBox2.Text.Length;
                 textBox2.Select(start, end);//选中
                 textBox2.SelectedText = "";//设置的内容为空
