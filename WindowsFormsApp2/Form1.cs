@@ -77,9 +77,9 @@ namespace WindowsFormsApp2
         private void button10_Click(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1.currentMedia == null) { return; }
-            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition < axWindowsMediaPlayer1.currentMedia.duration - 10)
+            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition < axWindowsMediaPlayer1.currentMedia.duration - 5)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.currentPosition += 10;
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition += 5;
             }
         }
 
@@ -87,11 +87,11 @@ namespace WindowsFormsApp2
         private void button1_Click(object sender, EventArgs e)
         {
             if (axWindowsMediaPlayer1.currentMedia == null) { return; } 
-            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 10 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 10)
+            if (axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 5 && axWindowsMediaPlayer1.Ctlcontrols.currentPosition > stopPoint.Peek() + 5)
             {
-                axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 10;
+                axWindowsMediaPlayer1.Ctlcontrols.currentPosition -= 5;
             }
-            else if(axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 10)
+            else if(axWindowsMediaPlayer1.Ctlcontrols.currentPosition > 5)
             {
                 axWindowsMediaPlayer1.Ctlcontrols.currentPosition = stopPoint.Peek();
             }
